@@ -7,6 +7,9 @@
 <title>Osobní trenér Smíchov, Pankrác, Karlín – Jan Růžek | Praha</title>
 <meta name="description" content="Osobní a fitness trenér v Praze – Smíchov, Pankrác, Karlín (Euphoria Fitness). Trénink na míru od 850 Kč, jídelníčky, online coaching a firemní lekce pro zaměstnance. Mgr. Jan Růžek, FTVS UK, 7 let praxe.">
 <link rel="canonical" href="https://honzaruzek.com/">
+<link rel="alternate" hreflang="cs" href="https://honzaruzek.com/">
+<link rel="alternate" hreflang="en" href="https://honzaruzek.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://honzaruzek.com/">
 <meta name="theme-color" content="#111111">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -164,6 +167,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .nav { display: flex; gap: 28px; }
 .nav a { text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 600; }
 .nav a:hover { color: var(--text); }
+.lang { display: inline-grid; place-items: center; min-width: 42px; height: 42px; padding: 0 12px; border: 1.5px solid var(--line); border-radius: 999px; color: var(--text); text-decoration: none; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; }
+.lang:hover { border-color: var(--gold); }
 .header .btn { min-height: 42px; padding: 0 18px; font-size: 15px; }
 
 /* Hero */
@@ -297,8 +302,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .price .amount.text { font-size: 40px; text-transform: uppercase; }
 .price .amount .from { margin: 0 6px 0 0; }
 .price .tiers { margin-top: 20px; display: grid; gap: 6px; font-size: 15px; }
-.price .tiers li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 12px; border-radius: 10px; background: rgba(255,255,255,.04); }
-.price .tiers span { color: var(--muted); }
+.price .tiers li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; padding: 8px 12px; border-radius: 10px; background: rgba(255,255,255,.04); }
+.price .tiers span { color: var(--muted); white-space: nowrap; }
 .price .tiers b { font-weight: 700; white-space: nowrap; }
 .price .per { color: var(--gold); font-weight: 600; font-size: 15px; margin-top: 8px; }
 .price .incl { margin: 24px 0 28px; padding-top: 24px; border-top: 1px solid var(--line); display: grid; gap: 12px; font-size: 15px; line-height: 1.5; color: var(--muted); flex: 1; align-content: start; }
@@ -505,6 +510,7 @@ ul { margin: 0; padding: 0; list-style: none; }
       <a href="#kontakt">Kontakt</a>
     </nav>
     <a class="btn btn-primary" href="tel:+420775046906"><svg aria-hidden="true"><use href="#i-phone"/></svg>775 046 906</a>
+    <a class="lang" href="en/" hreflang="en" lang="en" aria-label="English version">EN</a>
   </div>
 </header>
 
