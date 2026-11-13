@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Personal Trainer in Prague – Smíchov, Pankrác, Karlín | Jan Růžek</title>
-<meta name="description" content="English-speaking personal and fitness trainer in Prague – Smíchov, Pankrác, Karlín (Euphoria Fitness). Tailored training from CZK 850, meal plans, online coaching and corporate classes. Mgr. Jan Růžek, Charles University, 7 years of experience.">
+<meta name="description" content="English-speaking personal and fitness trainer in Prague – Smíchov, Pankrác, Karlín (Euphoria Fitness). Tailored training from CZK 850, meal plans, online coaching, massage and corporate classes. Mgr. Jan Růžek, Charles University, 7 years of experience.">
 <link rel="canonical" href="https://honzaruzek.com/en/">
 <link rel="alternate" hreflang="cs" href="https://honzaruzek.com/">
 <link rel="alternate" hreflang="en" href="https://honzaruzek.com/en/">
@@ -37,7 +37,7 @@
   "honorificPrefix": "Mgr.",
   "jobTitle": "Personal trainer and nutrition coach",
   "knowsLanguage": ["cs", "en"],
-  "knowsAbout": ["personal training", "fitness training", "nutrition coaching", "corporate fitness classes", "wellbeing", "corrective exercise"],
+  "knowsAbout": ["personal training", "fitness training", "nutrition coaching", "corporate fitness classes", "wellbeing", "corrective exercise", "massage"],
   "url": "https://honzaruzek.com/en/",
   "image": "https://honzaruzek.com/img/og.jpg",
   "telephone": "+420775046906",
@@ -56,7 +56,8 @@
     { "@type": "Offer", "name": "Personal training", "price": "850", "priceCurrency": "CZK", "description": "from CZK 850 per session" },
     { "@type": "Offer", "name": "Corporate classes", "price": "2000", "priceCurrency": "CZK", "description": "from CZK 2,000 per class" },
     { "@type": "Offer", "name": "Tailored meal plan", "price": "2000", "priceCurrency": "CZK", "description": "from CZK 2,000" },
-    { "@type": "Offer", "name": "Online coaching", "price": "2500", "priceCurrency": "CZK", "description": "from CZK 2,500 per month" }
+    { "@type": "Offer", "name": "Online coaching", "price": "2500", "priceCurrency": "CZK", "description": "from CZK 2,500 per month" },
+    { "@type": "Offer", "name": "Massage at your home", "price": "1800", "priceCurrency": "CZK", "description": "from CZK 1,800 per hour" }
   ]
 }
 </script>
@@ -314,9 +315,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 .price .btn { width: 100%; }
 .price-note { margin-top: 24px; color: var(--muted); font-size: 15px; }
 @media (min-width: 961px) {
-  /* Four services fit side by side, so the carousel controls aren't needed on desktop. */
+  /* Four services side by side; the arrows reveal the rest. */
   .deck { grid-auto-columns: calc((100% - 48px) / 4); }
-  .deck-bar { display: none; }
   .price { padding-inline: 24px; }
   .price h3 { font-size: 30px; }
 }
@@ -633,6 +633,18 @@ ul { margin: 0; padding: 0; list-style: none; }
             <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Ideal if you travel a lot or train on your own</span></li>
           </ul>
           <a class="btn btn-ghost" href="mailto:honzaruzek@seznam.cz?subject=I%27m%20interested%3A%20Online%20coaching&amp;body=Hello%2C%0A%0AI%27m%20interested%20in%20your%20services.%20My%20goal%20is%3A%20%0A%0APhone%3A%20%0A">I’m interested</a>
+        </article>
+        <article class="price">
+          <h3>Massage</h3>
+          <p class="for">Massage in the comfort of your home</p>
+          <p class="amount"><small class="from">from</small>1,800<small>CZK</small></p>
+          <p class="per">per hour · I come to you</p>
+          <ul class="incl">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><b>Massage at your home</b> – no need to travel</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Relaxes muscles after training or long hours of sitting</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span>Time that suits you</span></li>
+          </ul>
+          <a class="btn btn-ghost" href="mailto:honzaruzek@seznam.cz?subject=I%27m%20interested%3A%20Massage&amp;body=Hello%2C%0A%0AI%27m%20interested%20in%20a%20massage%20at%20my%20home.%20Area%3A%20%0A%0APhone%3A%20%0A">I’m interested</a>
         </article>
       </div>
       <p class="price-note">Not sure what to choose? Call or write – we’ll find what suits you together.</p>
