@@ -228,6 +228,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .creds li b { display: block; font-size: 16px; margin-bottom: 2px; }
 .creds li span { color: var(--muted); }
+.creds details { margin-top: 8px; }
+.creds summary { cursor: pointer; color: var(--gold); font-weight: 600; font-size: 15px; list-style: none; display: inline-flex; align-items: center; gap: 6px; min-height: 32px; }
+.creds summary::-webkit-details-marker { display: none; }
+.creds summary::after { content: ""; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform .15s; }
+.creds details[open] summary::after { transform: rotate(225deg) translate(-2px, 0); }
+.creds dl { margin: 4px 0 0; }
+.creds dt { margin-top: 10px; }
+.creds dt { color: var(--text); font-weight: 600; font-size: 14px; }
+.creds dd { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
 .creds svg { width: 22px; height: 22px; flex: none; color: var(--gold); margin-top: 1px; }
 
 /* Services + pricing */
@@ -551,7 +560,7 @@ ul { margin: 0; padding: 0; list-style: none; }
         <p>Každý plán sestavuji na míru – podle vašeho cíle, kondice, zdravotního stavu i denního režimu. Vím, že život je hektický, a proto se přizpůsobím vám.</p>
         <ul class="creds">
           <li><svg aria-hidden="true"><use href="#i-cap"/></svg><div><b>Mgr., FTVS UK</b><span>Sportovní trénink a pohybová diagnostika</span></div></li>
-          <li><svg aria-hidden="true"><use href="#i-award"/></svg><div><b>8 certifikací</b><span>NASM Understanding Fitness Programming · Coretraining silový trénink Level 1 a 2 · IQ Pohyb – stabilizace core, diagnostika držení těla, skolióza · Institut moderní výživy – efektivní hubnutí</span></div></li>
+          <li><svg aria-hidden="true"><use href="#i-award"/></svg><div><b>14 certifikací a kurzů</b><span>Fitness trenér, certified personal trainer, výživový poradce, nutriční terapeut, masér</span><details><summary>Zobrazit všechny</summary><dl><dt>Univerzita Karlova</dt><dd>Fitness trenér · Masér · Výživový poradce · Nutriční terapeut · Roller · Instruktor potápění · Instruktor lyžování</dd><dt>IQ Pohyb</dt><dd>Core principy posilování břicha · Funkční dýchání · Funkční noha a chodidlo · Bosu &amp; core</dd><dt>SAS Coaching Diploma</dt><dd>Certified personal trainer</dd><dt>Coretraining</dt><dd>Silový trénink</dd><dt>Nutriční institut</dt><dd>Nutriční terapeut</dd></dl></details></div></li>
           <li><svg aria-hidden="true"><use href="#i-globe"/></svg><div><b>Praxe v Česku i v Dubaji</b><span>Klienti od začátečníků po sportovce a lidi po zraněních</span></div></li>
         </ul>
         <a class="more-link" href="https://www.instagram.com/_honza_ruzek_/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>Víc fotek z tréninků na Instagramu</a>

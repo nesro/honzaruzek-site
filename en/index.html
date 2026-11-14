@@ -229,6 +229,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .creds li b { display: block; font-size: 16px; margin-bottom: 2px; }
 .creds li span { color: var(--muted); }
+.creds details { margin-top: 8px; }
+.creds summary { cursor: pointer; color: var(--gold); font-weight: 600; font-size: 15px; list-style: none; display: inline-flex; align-items: center; gap: 6px; min-height: 32px; }
+.creds summary::-webkit-details-marker { display: none; }
+.creds summary::after { content: ""; width: 7px; height: 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform .15s; }
+.creds details[open] summary::after { transform: rotate(225deg) translate(-2px, 0); }
+.creds dl { margin: 4px 0 0; }
+.creds dt { margin-top: 10px; }
+.creds dt { color: var(--text); font-weight: 600; font-size: 14px; }
+.creds dd { margin: 2px 0 0; color: var(--muted); font-size: 14px; }
 .creds svg { width: 22px; height: 22px; flex: none; color: var(--gold); margin-top: 1px; }
 
 /* Services + pricing */
@@ -552,7 +561,7 @@ ul { margin: 0; padding: 0; list-style: none; }
         <p>Every plan is tailored to you – your goal, fitness, health and daily routine. I know life gets hectic, so I adapt to you.</p>
         <ul class="creds">
           <li><svg aria-hidden="true"><use href="#i-cap"/></svg><div><b>Master’s degree, Charles University</b><span>Sports training and movement diagnostics</span></div></li>
-          <li><svg aria-hidden="true"><use href="#i-award"/></svg><div><b>8 certifications</b><span>NASM Understanding Fitness Programming · Coretraining strength training Level 1 and 2 · IQ Pohyb – core stabilisation, posture diagnostics, scoliosis · Institute of Modern Nutrition – effective weight loss</span></div></li>
+          <li><svg aria-hidden="true"><use href="#i-award"/></svg><div><b>14 certifications and courses</b><span>Fitness trainer, certified personal trainer, nutrition advisor, nutrition therapist, massage therapist</span><details><summary>Show all</summary><dl><dt>Charles University</dt><dd>Fitness trainer · Massage therapist · Nutrition advisor · Nutrition therapist · Foam roller · Diving instructor · Ski instructor</dd><dt>IQ Pohyb</dt><dd>Core principles of abdominal training · Functional breathing · Functional foot · Bosu &amp; core</dd><dt>SAS Coaching Diploma</dt><dd>Certified personal trainer</dd><dt>Coretraining</dt><dd>Strength training</dd><dt>Nutriční institut (Nutrition Institute)</dt><dd>Nutrition therapist</dd></dl></details></div></li>
           <li><svg aria-hidden="true"><use href="#i-globe"/></svg><div><b>Experience in Prague and Dubai</b><span>Clients from beginners to athletes and people recovering from injuries</span></div></li>
         </ul>
         <a class="more-link" href="https://www.instagram.com/_honza_ruzek_/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>More training photos on Instagram</a>
