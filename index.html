@@ -329,25 +329,16 @@ ul { margin: 0; padding: 0; list-style: none; }
   .price h3 { font-size: 30px; }
 }
 
-/* Client videos */
-.videos { display: grid; grid-template-columns: repeat(3, minmax(0, 320px)); justify-content: center; gap: 16px; }
-.video {
-  aspect-ratio: 9 / 16;
-  border-radius: var(--radius);
-  background: var(--surface);
-  border: 1.5px dashed var(--line);
-  display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: 14px;
-  padding: 24px;
-  text-align: center;
-  color: var(--muted);
-  font-size: 15px;
-}
-.video .play { width: 64px; height: 64px; border-radius: 50%; background: var(--gold); color: var(--on-gold); display: grid; place-items: center; }
-.video .play svg { width: 26px; height: 26px; margin-left: 3px; }
-.video b { color: var(--text); }
+/* Client reviews */
+.reviews { columns: 3 300px; column-gap: 16px; }
+.review { break-inside: avoid; margin: 0 0 16px; padding: 24px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+.review .stars { display: flex; gap: 2px; color: var(--gold); margin-bottom: 14px; }
+.review .stars svg { width: 18px; height: 18px; }
+.review blockquote { margin: 0; color: var(--text); font-size: 16px; line-height: 1.6; }
+.review figcaption { margin-top: 16px; color: var(--muted); font-size: 14px; }
+.review figcaption b { color: var(--text); font-weight: 600; }
+.rating { color: var(--gold); font-weight: 600; text-decoration: none; white-space: nowrap; }
+.rating:hover { color: var(--gold-hover); }
 .more-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; color: var(--gold); font-weight: 600; text-decoration: none; }
 .more-link:hover { color: var(--gold-hover); }
 .more-link svg { width: 18px; height: 18px; }
@@ -462,9 +453,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   .price .amount { font-size: 44px; margin-top: 18px; }
   .price .amount.text { font-size: 34px; }
   .price .incl { gap: 8px; margin: 18px 0 22px; padding-top: 18px; }
-  .videos { grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: 72%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-  .videos::-webkit-scrollbar { display: none; }
-  .video { scroll-snap-align: start; }
+  .reviews { columns: auto; display: grid; grid-auto-flow: column; grid-auto-columns: 85%; gap: 12px; align-items: start; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .reviews::-webkit-scrollbar { display: none; }
+  .review { margin: 0; scroll-snap-align: start; }
   .hero-cta .btn { flex: 1 1 100%; }
   .actionbar {
     display: grid;
@@ -504,7 +495,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   <symbol id="i-home" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 10.5 12 4l8 6.5V20h-5.5v-6h-5v6H4z"/></symbol>
   <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 20l1.3-3.9A8 8 0 1 1 8 18.8z"/><path fill="currentColor" d="M9.2 8.2c.2-.4.5-.4.7-.4h.5c.2 0 .4 0 .5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c.6 1.2 1.6 2.1 2.8 2.7l.6-.6c.2-.2.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.5c0 .3-.2.6-.5.8-.5.3-1.2.5-1.9.3a8 8 0 0 1-5.6-5.4c-.2-.7 0-1.6.2-2.2z"/></symbol>
-  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l12.5-7.5z"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.8 2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></symbol>
   <symbol id="i-next" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21v-7.5H16l.4-3h-2.9V8.6c0-.87.25-1.46 1.5-1.46H16.6V4.46A21 21 0 0 0 14.3 4.3c-2.3 0-3.8 1.4-3.8 3.95v2.25H8v3h2.5V21z"/></symbol>
 </svg>
@@ -518,7 +509,7 @@ ul { margin: 0; padding: 0; list-style: none; }
     <nav class="nav" aria-label="Hlavní navigace">
       <a href="#o-mne">O mně</a>
       <a href="#sluzby">Služby a ceník</a>
-      <a href="#klienti">Klienti</a>
+      <a href="#klienti">Recenze</a>
       <a href="#kde">Kde trénuji</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
@@ -667,15 +658,18 @@ ul { margin: 0; padding: 0; list-style: none; }
     <div class="wrap">
       <div class="section-head">
         <div>
-          <span class="eyebrow">Klienti</span>
-          <h2 class="section-title">Jak to u mě vypadá</h2>
+          <span class="eyebrow">Recenze</span>
+          <h2 class="section-title">Co říkají klienti</h2>
         </div>
-        <p class="lead">Krátká videa přímo z fitka – klienti při tréninku a pár slov od nich.</p>
+        <p class="lead">Hodnocení <a class="rating" href="https://maps.google.com/?cid=9705527908958219828" target="_blank" rel="noopener">5,0 ★ z 11 recenzí na Googlu</a>.</p>
       </div>
-      <div class="videos">
-        <div class="video"><span class="play"><svg aria-hidden="true"><use href="#i-play"/></svg></span><b>Video 1</b>Sem přijde krátké video klienta</div>
-        <div class="video"><span class="play"><svg aria-hidden="true"><use href="#i-play"/></svg></span><b>Video 2</b>Sem přijde krátké video klienta</div>
-        <div class="video"><span class="play"><svg aria-hidden="true"><use href="#i-play"/></svg></span><b>Video 3</b>Sem přijde krátké video klienta</div>
+      <div class="reviews">
+        <figure class="review"><div class="stars" aria-label="5 hvězd z 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><blockquote>„Díky Honzovi jsem se konečně odhodlal začít cvičit – a bylo to nejlepší rozhodnutí! Jako úplný začátečník jsem měl obavy, ale Honza má neuvěřitelně trpělivý a osobní přístup. Všechno mi detailně vysvětlil, vždycky mi ukázal správnou techniku a hlavně mě podporoval, i když mi něco nešlo. Každý trénink přizpůsobuje mým možnostem, ale zároveň mě motivuje se zlepšovat.“</blockquote><figcaption><b>Tomáš H.</b> · Google</figcaption></figure>
+        <figure class="review"><div class="stars" aria-label="5 hvězd z 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><blockquote>„Mám revmatoidní artritidu a endoprotézu kyčle i kolena, přesto všechny tréninky naprosto odborně naplánoval tak, aby korespondovaly s možnostmi mého těla, a zároveň jsem se fyzicky i vzhledově posouval dál. Líbí se mi, že se člověku plně věnuje po celý čas tréninku.“</blockquote><figcaption><b>André B.</b> · Google</figcaption></figure>
+        <figure class="review"><div class="stars" aria-label="5 hvězd z 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><blockquote lang="en">„Honza is a great trainer. Fully fluent in English (good asset for foreigners), he can adapt training to your needs, he has very good body knowledge so the exercises are well adapted to the client's body and expectations. Trainings with Honza are balanced between fun and workout, I definitely recommend.“</blockquote><figcaption><b>Simon B.</b> · Google</figcaption></figure>
+        <figure class="review"><div class="stars" aria-label="5 hvězd z 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><blockquote>„Tréninky s Honzou jsou na pohodu, ale posunou tě dál. Umí vystihnout, co ještě můžeš a co je moc. Vnímá a poslouchá, co říkáš, a trénink umí přizpůsobit tvým možnostem nebo omezením. A je u toho legrace.“</blockquote><figcaption><b>Miroslav V.</b> · Google</figcaption></figure>
+        <figure class="review"><div class="stars" aria-label="5 hvězd z 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><blockquote lang="en">„Honza is a great personal trainer to work with. He prepares a training plan according to the needs and condition of the client and during workouts he communicates well and is fun to work with :) He can also advise on diet.“</blockquote><figcaption><b>Martin</b> · Google</figcaption></figure>
+        <figure class="review"><div class="stars" aria-label="5 hvězd z 5"><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg><svg aria-hidden="true"><use href="#i-star"/></svg></div><blockquote>„S Honzou vás cvičení bude bavit. S Honzou dosáhnete reálných výsledků. Honza vás nabije pozitivní energií. S Honzou se zasmějete.“</blockquote><figcaption><b>Dominik V.</b> · Google</figcaption></figure>
       </div>
       <a class="more-link" href="https://www.instagram.com/_honza_ruzek_/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>Další fotky a videa na Instagramu</a>
     </div>
