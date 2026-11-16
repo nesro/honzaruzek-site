@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://honzaruzek.com/sitemap.xml
