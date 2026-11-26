@@ -480,6 +480,17 @@ img.avatar { object-fit: cover; padding: 0; }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* Cookie consent (Google Ads). Nothing loads from Google until "Přijmout". */
+.consent { position: fixed; left: 16px; bottom: 16px; z-index: 40; width: min(440px, calc(100% - 32px)); padding: 20px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); box-shadow: 0 12px 40px rgba(0,0,0,.5); }
+.consent[hidden] { display: none; }
+.consent p { margin: 0 0 16px; color: var(--text); font-size: 15px; line-height: 1.5; }
+.consent .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.consent .btn { min-height: 46px; padding: 0 12px; background: transparent; color: var(--text); font-family: inherit; cursor: pointer; }
+.linkish { background: none; border: 0; padding: 0; font: inherit; color: inherit; text-decoration: underline; cursor: pointer; }
+@media (max-width: 960px) {
+  .consent { left: 0; right: 0; bottom: 0; width: auto; border-radius: var(--radius) var(--radius) 0 0; padding: 18px 16px calc(14px + env(safe-area-inset-bottom)); }
+}
 </style>
 </head>
 <body>
@@ -746,9 +757,14 @@ img.avatar { object-fit: cover; padding: 0; }
   <div class="wrap">
     <p>“Your body is not a tool for reaching goals, but a partner on the way to health. Take care of it.”</p>
     <p>© <span id="y">2026</span> Mgr. Jan Růžek</p>
-    <p class="place-credit">Website made by <a href="https://nesro.cz" target="_blank" rel="noopener">Tomáš Nesrovnal</a> · Map © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</p>
+    <p class="place-credit">Website made by <a href="https://nesro.cz" target="_blank" rel="noopener">Tomáš Nesrovnal</a> · Map © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors · <button type="button" class="linkish" data-consent-open>Cookie settings</button></p>
   </div>
 </footer>
+
+<div class="consent" id="consent" role="dialog" aria-label="Cookie consent" hidden>
+  <p>May I use Google Ads cookies? They help me see whether my ads work. Nothing is measured without your consent.</p>
+  <div class="row"><button type="button" class="btn btn-ghost" data-decline>Decline</button><button type="button" class="btn btn-ghost" data-accept>Accept</button></div>
+</div>
 
 <div class="actionbar">
   <a class="btn btn-primary" href="tel:+420775046906"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
@@ -796,6 +812,54 @@ document.getElementById("y").textContent = new Date().getFullYear();
   deck.addEventListener("scroll", function () { if (Date.now() - clickedAt > 700) idx = nearest(); sync(); }, { passive: true });
   window.addEventListener("resize", sync);
   sync();
+})();
+</script>
+<script>
+(function () {
+  var KEY = "hr-consent", AW = "AW-18582270046", SEND = "AW-18582270046/IiGsCOW-3r8dEN7g25xF";
+  var bar = document.getElementById("consent"), loaded = false;
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  function read() {
+    try { var v = JSON.parse(localStorage.getItem(KEY)); if (v && Date.now() - v.t < 365 * 864e5) return v.c; } catch (e) {}
+    return null;
+  }
+  function save(c) { try { localStorage.setItem(KEY, JSON.stringify({ c: c, t: Date.now() })); } catch (e) {} }
+  function load() {
+    if (loaded) return;
+    loaded = true;
+    gtag("consent", "default", { ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied", analytics_storage: "denied" });
+    gtag("consent", "update", { ad_storage: "granted", ad_user_data: "granted", ad_personalization: "granted" });
+    gtag("js", new Date());
+    gtag("config", AW);
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + AW;
+    document.head.appendChild(s);
+  }
+  function decide(c) {
+    save(c);
+    bar.hidden = true;
+    if (c === "granted") return load();
+    if (loaded) {
+      gtag("consent", "update", { ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied" });
+      document.cookie.split(";").forEach(function (k) {
+        var n = k.split("=")[0].trim();
+        if (/^_(gcl|ga|gid)/.test(n)) document.cookie = n + "=; Max-Age=0; path=/; domain=." + location.hostname;
+      });
+    }
+  }
+  bar.querySelector("[data-accept]").addEventListener("click", function () { decide("granted"); });
+  bar.querySelector("[data-decline]").addEventListener("click", function () { decide("denied"); });
+  document.querySelectorAll("[data-consent-open]").forEach(function (b) { b.addEventListener("click", function () { bar.hidden = false; }); });
+  // A conversion = a tap on phone, e-mail ("Mám zájem" too) or WhatsApp — never a mere visit.
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="mailto:"], a[href*="wa.me/"]');
+    if (a && loaded) gtag("event", "conversion", { send_to: SEND });
+  });
+  var c = read();
+  if (c === "granted") load();
+  else if (c === null) bar.hidden = false;
 })();
 </script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ebdb7e9b4c5743099b74d2ddea4a7fa6"}'></script><!-- End Cloudflare Web Analytics -->
